@@ -4,15 +4,22 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--
+    Inserting dependency using constructor
     <bean id = "orderService2" class = "in.strikes.OrderService">
             <constructor-arg ref = "paymentService"/>
 
     </bean>
+    -->
+
+    <!-- Inserting dependency using setter -->
+    <bean id="orderService2" class="in.strikes.OrderService">
+        <property name="PaymentServiceBean" ref="paymentService"/>
+    </bean>
+
 
     <!--
-
     <bean id = "orderService" class = "in.strikes.OrderService"/>
-
     -->
 
     <bean id="paymentService" class="in.strikes.PaymentService">
